@@ -61,7 +61,8 @@ app.mount("/static", StaticFiles(directory=os.path.dirname(__file__)), name="sta
 
 if __name__ == "__main__":
     import subprocess
-    subprocess.run([sys.executable, "init_db.py"]) 
+    import sys
+    subprocess.run([sys.executable, "init_db.py"])
     import uvicorn
     port = int(os.environ.get("PORT", 8080))
     uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
